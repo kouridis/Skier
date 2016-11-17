@@ -6,11 +6,25 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Skier</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        Skier
+        <form method="GET" action="login.jsp">
+            <input type="submit" value="Log In"/>
+        </form>
+        <form  method="POST" action="SelectResort.do">
+            <label for="resort">Select Resort</label>
+            <select id="resort" name="resort">
+                <option value="vigla">Viglas</option>
+                <option value="pilio">Piliou</option>
+                <option value="vasilita">Vasilitas</option>
+            </select> 
+            <br><br>
+            <input type="submit" value="Select">
+        </form>
+        
     </body>
 </html>
