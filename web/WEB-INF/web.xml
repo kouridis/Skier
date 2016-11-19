@@ -13,6 +13,16 @@
         <servlet-name>ActionResort</servlet-name>
         <url-pattern>/ActionResort.do</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.example.web.Login</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login.do</url-pattern>
+    </servlet-mapping>
   
     <servlet>
      <servlet-name>DatabaseAccess</servlet-name>
