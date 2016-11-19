@@ -18,9 +18,9 @@
             <input type="email" placeholder="Email" name="email" required><br>
             <input type="radio" name="gender" value="male" > Male<br>
             <input type="radio" name="gender" value="female"> Female<br>
-            <input type="text" placeholder="Height in cm" name="height" size="3"><br>
-            <input type="text" placeholder="Foot size" name="fsize" size="2"><br>
-            <input type="text" placeholder="Weight in kg" name="weight" size="2"><br>
+            <input type="text" placeholder="Height in cm" name="height" maxlength="3" size="12"><br>
+            <input type="text" placeholder="Foot size" name="fsize" maxlength="2" size="12"><br>
+            <input type="text" placeholder="Weight in kg" name="weight" maxlength="2" size="12"><br>
             <input type="radio" name="exp" value="beginner" checked> Beginner<br>
             <input type="radio" name="exp" value="intermediate"> Intermediate<br>
             <input type="radio" name="exp" value="experienced"> Experienced<br>
