@@ -1,9 +1,11 @@
+<%-- 
+    Document   : index
+    Created on : Nov 19, 2016, 11:47:36 AM
+    Author     : kourt
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Skier</title>
@@ -15,19 +17,17 @@ and open the template in the editor.
         <form method="GET" action="login.jsp">
             <input type="submit" value="Log In"/>
         </form>
-        <form  method="POST" action="ActionResort.do">
+        <form  method="POST" action="SelectResort.do">
             <label for="resort">Select Resort</label>
             <select id="resort" name="resort">
                 <option value="vigla">Viglas</option>
                 <option value="pilio">Piliou</option>
                 <option value="vasilita">Vasilitas</option>
-                <option value="test">TestResort</option>
             </select> 
             <br><br>
-            <input type="submit" name="act" value="Rent"/>
-            <input type="submit" name="act" value="Live"/>
-            <input type="submit" name="act" value="Select"/>
+            <button type="submit" name="rent">Rent</button>
+            <button type="submit" name="rent">Live</button>
+            <button type="submit" name="select">Select</button>
         </form>
-        
     </body>
 </html>
