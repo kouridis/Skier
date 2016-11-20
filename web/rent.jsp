@@ -16,8 +16,8 @@
         <%@ include file="header.jsp" %>
         <form method="POST" action="Rent.do">
             <input type="text" placeholder="Height in cm" name="height" maxlength="3" size="12"><br>
+            <input type="text" placeholder="Weight in kg" name="weight" maxlength="3" size="12"><br>            
             <input type="text" placeholder="Foot size" name="fsize" maxlength="2" size="12"><br>
-            <input type="text" placeholder="Weight in kg" name="weight" maxlength="2" size="12"><br>
             <input type="radio" name="exp" value="beginner" checked> Beginner<br>
             <input type="radio" name="exp" value="intermediate"> Intermediate<br>
             <input type="radio" name="exp" value="experienced"> Experienced<br>

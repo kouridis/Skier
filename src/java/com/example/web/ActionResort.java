@@ -40,7 +40,7 @@ public class ActionResort extends HttpServlet {
                 view.forward(request, response);
             }
             else {
-                if (!DBManager.infoComplete(session.getAttribute("user").toString())) {
+                if (!DBManager.isInfoComplete(session.getAttribute("user").toString())) {
                     //sindedemenos user alla oxi simpliromena stoixeia
                     RequestDispatcher view = request.getRequestDispatcher("Profile.do");
                     view.forward(request, response);

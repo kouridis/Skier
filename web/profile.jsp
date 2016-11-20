@@ -13,10 +13,19 @@
         <title>Skier|Profile</title>
     </head>
     <body>
-        <input type="text" placeholder="First name" name="fname" required><br>
-        <input type="text" placeholder="Last name" name="lname" required><br>
-        <input type="email" placeholder="Email" name="email" required><br>
-        <input type="radio" name="gender" value="male" > Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
+        <%@ include file="header.jsp" %>
+        <form method="POST" action="Profile.do">
+            First name: ${firstName}<br>
+            Last name: ${lastName}<br>
+            E-mail: ${email}<br>
+            Gender: ${gender}<br>
+            Height in cm: ${height}<br>
+            Weight in kg: ${weight}<br>
+            Foot size: ${foot}<br>
+            Experience: ${exp}<br>
+            
+            <input type="submit" name="update" value="Update info">
+            <input type="submit" name="password" value="Change password">
+        </form>
     </body>
 </html>

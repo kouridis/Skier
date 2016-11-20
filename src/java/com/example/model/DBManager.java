@@ -110,7 +110,7 @@ public class DBManager {
         }        
     }
     
-    public static boolean infoComplete(String username) {
+    public static boolean isInfoComplete(String username) {
         try{
             //loading drivers for mysql
             Class.forName(JDBC);
@@ -143,7 +143,7 @@ public class DBManager {
         }        
     }
     
-    public static String[] getUser(String username) {
+    public static String[][] getUser(String username) {
         try{
             //loading drivers for mysql
             Class.forName(JDBC);
@@ -157,16 +157,22 @@ public class DBManager {
             ResultSet rs = ps.executeQuery();
             rs.next();
             
-            Array a = rs.getArray("is_nullable");
-            String[] results = (String[])a.getArray();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnCount = rsmd.getColumnCount();
+            String[][] results = new String[columnCount][2];
+            
+            for (int i=1; i<=columnCount; i++) {
+                results[i-1][0] = rsmd.getColumnName(i);
+                results[i-1][1] = rs.getString(rsmd.getColumnName(i));
+            }
             
             return results;
         }
         catch(Exception e) {
           e.printStackTrace();
           
-          String[] results = new String[1];
-          results[0] = null;
+          String[][] results = new String[1][1];
+          results[0][0] = null;
           return results;
         }        
     }
