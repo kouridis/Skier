@@ -11,6 +11,7 @@ package com.example.web;
  */
 
 //import com.example.model.*;
+import com.example.model.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
@@ -25,29 +26,21 @@ public class Signup extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        String id = "5";
+        String id = "7";
         
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/skierusers", "root", "%TasosKour1993");
+        if(CreateAccount.addUser(id, username, email, password))
+        {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", username);
             
-            //Statement st = conn.createStatement();
-            String insertQuery = "INSERT INTO users (id, username, email, password) values(?,?,?,?)";
-            PreparedStatement ps = conn.prepareStatement(insertQuery);
-            ps.setString(1,id);
-            ps.setString(2,username);
-            ps.setString(3,email);
-            ps.setString(4,password);
-            ps.executeUpdate();
- 
-        } catch (Exception e2) {
-            System.out.println(e2);
+            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+            view.forward(request, response);
         }
-        RequestDispatcher view = null;
-        view = request.getRequestDispatcher("index.html");
-        view.forward(request, response);
-        
+        else
+        {
+           RequestDispatcher view = request.getRequestDispatcher("signup.jsp");
+           view.forward(request, response);
+        }
     }
     
 }

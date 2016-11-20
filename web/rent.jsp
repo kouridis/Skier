@@ -13,11 +13,13 @@
     </head>
     <body>
         <form method="POST" action="Rent.do">
+            <%-- 
             <input type="text" placeholder="First name" name="fname" required><br>
             <input type="text" placeholder="Last name" name="lname" required><br>
             <input type="email" placeholder="Email" name="email" required><br>
             <input type="radio" name="gender" value="male" > Male<br>
             <input type="radio" name="gender" value="female"> Female<br>
+            --%>
             <input type="text" placeholder="Height in cm" name="height" maxlength="3" size="12"><br>
             <input type="text" placeholder="Foot size" name="fsize" maxlength="2" size="12"><br>
             <input type="text" placeholder="Weight in kg" name="weight" maxlength="2" size="12"><br>

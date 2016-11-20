@@ -3,6 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          Version="2.4">
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
     <resource-ref>
         <description>Connection Pool</description>
         <res-ref-name>jdbc/skierusers</res-ref-name>
@@ -39,5 +43,19 @@
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup.do</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UTHLogin</servlet-name>
+        <servlet-class>com.example.web.UTHLogin</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+        <servlet-name>UTHLogin</servlet-name>
+        <url-pattern>/UTHLogin.do</url-pattern>
+    </servlet-mapping>
+    
+    <listener>
+        <listener-class>com.example.web.SessionCountListener</listener-class>
+    </listener>
   
 </web-app>

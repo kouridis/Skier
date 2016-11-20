@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -9,7 +10,8 @@
         <div class="form">
             <h1 align="center">Login</h1>
             <form  method="POST" action="Login.do">
-                <input type="text" placeholder="Email or Username" name="username" required><br>
+                <input type="hidden" name="from" value="${param.from}">
+                <input type="text" placeholder="Username" name="username" required><br>
                 <input type="password" placeholder="Password" name="password" required><br>
                 <a href="forgot.jsp">Forgot password?</a><br>
                 <input type="submit" name="skierlogin" value="Log In"><br>

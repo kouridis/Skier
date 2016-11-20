@@ -1,49 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.web;
 
-/**
- *
- * @author kouridis
- */
-
-//import com.example.model.*;
+import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.io.*;
-import java.util.*;
-import com.uthldap.Uthldap;
+import java.sql.*;
+import com.example.model.*;
 
 public class Login extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    }
  
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        Uthldap ldap = new Uthldap(username,password);
-        HttpSession session = null;
-        RequestDispatcher view = null;
         
-        if(ldap.auth()){
-            System.out.println("Autheticated Youre name is:" + ldap.getName());
-            session = request.getSession();
-            request.setAttribute("username", username);
-            session.setAttribute("username", username);
-            view = request.getRequestDispatcher("userview.jsp");
+        if(Validate.checkUser(username, password))
+        {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", username);
+            response.sendRedirect(request.getParameter("from"));
         }
-        else{
-            System.out.println("Authetication failed");
-            request.setAttribute("failure", "Login failed");
-            request.setAttribute("fail", "1");
-            view = request.getRequestDispatcher("login.jsp");
+        else
+        {
+           System.out.println("Username or Password incorrect");
+           RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+           view.forward(request, response);
         }
-        view.forward(request, response);
-        
-    }
-    
+    }  
 }
