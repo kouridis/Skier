@@ -11,6 +11,7 @@ package com.example.web;
  */
 
 //import com.example.model.*;
+import com.example.model.DBManager;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
@@ -18,36 +19,42 @@ import java.util.*;
 import com.uthldap.Uthldap;
 
 public class ActionResort extends HttpServlet {
-    public void doPost( HttpServletRequest request, 
+    public void doGet( HttpServletRequest request, 
                       HttpServletResponse response) 
                       throws IOException, ServletException {
 
-    String resort = request.getParameter("resort");
-    
-    String act = request.getParameter("act");
-    
-    if (act == null) {
-        //no button has been selected
-    } else if (act.equals("Rent")) {
-        HttpSession session=request.getSession();
-        if (session.getAttribute("user") == null) {
-            RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+        String resort = request.getParameter("resort");
+        if (resort.equals("default")) {
+            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
             view.forward(request, response);
         }
-        else {
-            //sindedemenos user alla oxi simpliromena stoixeia
-            RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
+        
+        String act = request.getParameter("act");
+
+        if (act == null) {
+            //no button has been selected
+        } else if (act.equals("Rent")) {
+            HttpSession session=request.getSession();
+            if (session.getAttribute("user") == null) {
+                RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+                view.forward(request, response);
+            }
+            else {
+                if (!DBManager.infoComplete(session.getAttribute("user").toString())) {
+                    //sindedemenos user alla oxi simpliromena stoixeia
+                    RequestDispatcher view = request.getRequestDispatcher("Profile.do");
+                    view.forward(request, response);
+                }
+                RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
+                view.forward(request, response);
+            }
+        } else if (act.equals("Live")) {
+            RequestDispatcher view = request.getRequestDispatcher("live.jsp");
             view.forward(request, response);
+        } else if (act.equals("Select")) {
+            RequestDispatcher view = request.getRequestDispatcher("resort.jsp");
+            view.forward(request, response);
+        } else {
         }
-    } else if (act.equals("Live")) {
-        RequestDispatcher view = request.getRequestDispatcher("live.jsp");
-        view.forward(request, response);
-    } else if (act.equals("Select")) {
-        RequestDispatcher view = request.getRequestDispatcher("resort.jsp");
-        view.forward(request, response);
-    } else {
     }
-    
-  }
-    
 }

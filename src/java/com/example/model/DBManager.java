@@ -5,10 +5,8 @@
  */
 package com.example.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+
 
 /**
  *
@@ -111,4 +109,66 @@ public class DBManager {
           return false;
         }        
     }
+    
+    public static boolean infoComplete(String username) {
+        try{
+            //loading drivers for mysql
+            Class.forName(JDBC);
+
+            //creating connection with the database 
+            Connection conn = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+            
+            PreparedStatement ps =conn.prepareStatement
+                                ("select lastName, firstName, gender from users where username=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            
+            String[] results = new String[3];
+            results[0] = rs.getString("lastName"); 
+            results[1] = rs.getString("firstName");
+            results[2] = rs.getString("gender");
+            
+            for (int i=0; i<=results.length-1; i++) {
+                if (results[i] == null) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        catch(Exception e) {
+          e.printStackTrace();
+          return false;
+        }        
+    }
+    
+    public static String[] getUser(String username) {
+        try{
+            //loading drivers for mysql
+            Class.forName(JDBC);
+
+            //creating connection with the database 
+            Connection conn = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+            
+            PreparedStatement ps =conn.prepareStatement
+                                ("select * from users where username=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            
+            Array a = rs.getArray("is_nullable");
+            String[] results = (String[])a.getArray();
+            
+            return results;
+        }
+        catch(Exception e) {
+          e.printStackTrace();
+          
+          String[] results = new String[1];
+          results[0] = null;
+          return results;
+        }        
+    }
+
 }

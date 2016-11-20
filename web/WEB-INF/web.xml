@@ -64,6 +64,16 @@
         <url-pattern>/UTHLogin.do</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>com.example.web.Profile</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/Profile.do</url-pattern>
+    </servlet-mapping>
+    
     <listener>
         <listener-class>com.example.web.SessionCountListener</listener-class>
     </listener>

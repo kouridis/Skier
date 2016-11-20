@@ -16,9 +16,10 @@
     </head>
         Skier
         <%@ include file="header.jsp" %>
-        <form  method="POST" action="ActionResort.do">
+        <form  method="GET" action="ActionResort.do">
             <label for="resort">Select Resort</label>
             <select id="resort" name="resort">
+                <option value="default"></option>
                 <option value="vigla">Viglas</option>
                 <option value="pilio">Piliou</option>
                 <option value="vasilita">Vasilitas</option>
