@@ -10,7 +10,7 @@ package com.example.web;
  * @author kouridis
  */
 
-//import com.example.model.*;
+import com.example.model.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
@@ -29,6 +29,12 @@ public class UTHLogin extends HttpServlet {
         RequestDispatcher view = null;
         
         if(ldap.auth()){
+            if (!DBManager.checkUser(username)) {
+                String lfname = ldap.getName();
+                String email = ldap.getMail();
+
+                DBManager.addUTHUser(username, email, lfname);
+            }
             System.out.println("Autheticated Youre name is:" + ldap.getName());
             HttpSession session = request.getSession();
             session.setAttribute("user", username);
