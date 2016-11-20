@@ -89,7 +89,7 @@ public class DBManager {
         }        
     }
     
-    public static boolean checkUser(String username) {
+    public static boolean checkUTHUser(String username) {
         try{
             //loading drivers for mysql
             Class.forName(JDBC);
@@ -110,7 +110,7 @@ public class DBManager {
         }        
     }
     
-    public static boolean isInfoComplete(String username) {
+    public static boolean isInfoCompleted(String username) {
         try{
             //loading drivers for mysql
             Class.forName(JDBC);
@@ -174,6 +174,40 @@ public class DBManager {
           String[][] results = new String[1][1];
           results[0][0] = null;
           return results;
+        }        
+    }
+    
+    public static boolean updateUser(String[][] info) {
+        try{
+            int i;
+            //loading drivers for mysql
+            Class.forName(JDBC);
+
+            //creating connection with the database 
+            Connection conn = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+            String query = "update users set ";
+            for (i=1; i<=info.length-1; i++) {
+                query = query + info[i][0] + " = ?, ";
+            }
+            query = query.substring(0, query.length()-2);
+            query = query + " where " + info[0][0] + " = ?";
+            System.out.println(query);
+            PreparedStatement ps =conn.prepareStatement(query);
+            
+            for(i=1; i<=info.length-1; i++) {
+                System.out.println(info[i][1]);
+                ps.setString(i, info[i][1]);
+            }
+            ps.setString(i, info[0][1]);
+
+            ps.executeUpdate();
+            
+            return true;
+        }
+        catch(Exception e) {
+          e.printStackTrace();
+
+          return false;
         }        
     }
 

@@ -29,7 +29,7 @@ public class UTHLogin extends HttpServlet {
         RequestDispatcher view = null;
         
         if(ldap.auth()){
-            if (!DBManager.checkUser(username)) {
+            if (!DBManager.checkUTHUser(username)) {
                 String lfname = ldap.getName();
                 String email = ldap.getMail();
 

@@ -16,10 +16,16 @@
     <body>
         <%@ include file="header.jsp" %>
         <form method="POST" action="Profile.do">
-            <input type="email" name="email" placeholder="Height in cm"><br>
-            <input type="text" name="height" maxlength="3" size="12" placeholder="Height in cm"><br>
-            <input type="text" name="weight" maxlength="3" size="12" placeholder="Weight in kg"><br>            
-            <input type="text" name="fsize" maxlength="2" size="12" placeholder="Foot size"><br>
+            First name: ${firstName}<br>
+            Last name: ${lastName}<br>
+            Gender<br>
+            <input type="radio" name="gender" value="Male"> Male<br>
+            <input type="radio" name="gender" value="Female"> Female<br>
+            E-mail: <input type="email" name="email" placeholder=${email}><br>
+            Height in cm: <input type="text" name="height" maxlength="3" size="12" placeholder=${height}><br>
+            Weight in kg: <input type="text" name="weight" maxlength="3" size="12" placeholder=${weight}><br>            
+            Foot size: <input type="text" name="foot" maxlength="2" size="12" placeholder=${foot}><br>
+            Experience<br>
             <input type="radio" name="exp" value="beginner"> Beginner<br>
             <input type="radio" name="exp" value="intermediate"> Intermediate<br>
             <input type="radio" name="exp" value="experienced"> Experienced<br>

@@ -14,7 +14,7 @@
     </head>
     <body>
         <%@ include file="header.jsp" %>
-        <form method="POST" action="Profile.do">
+        <form method="GET" action="Profile.do">
             First name: ${firstName}<br>
             Last name: ${lastName}<br>
             E-mail: ${email}<br>
