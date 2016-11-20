@@ -35,6 +35,16 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.example.web.Logout</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>Signup</servlet-name>
         <servlet-class>com.example.web.Signup</servlet-class>
     </servlet>

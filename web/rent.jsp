@@ -12,6 +12,7 @@
         <title>Skier|Rent</title>
     </head>
     <body>
+        <%@ include file="header.jsp" %>
         <form method="POST" action="Rent.do">
             <%-- 
             <input type="text" placeholder="First name" name="fname" required><br>

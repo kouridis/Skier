@@ -12,6 +12,7 @@
         <title>Skier | Sign up</title>
     </head>
     <body>
+        <%@ include file="header.jsp" %>
         <form method="POST" action="Signup.do">
             <input type="text" placeholder="Username" name="username" required><br>
             <input type="password" placeholder="Password" name="password" required><br>

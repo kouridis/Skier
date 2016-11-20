@@ -14,24 +14,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    
         Skier
-        <c:choose>
-            <c:when test="${sessionScope.user == null}">
-                <form method="GET" action="login.jsp">
-                    <input type="hidden" name="from" value=${pageContext.request.requestURI}>
-                    <input type="submit" value="Log In"/>
-                </form>
-            </c:when>
-            <c:otherwise>
-                <form method="GET" action="logout.jsp">
-                    <input type="submit" value="Logout"/>
-                </form>
-                <form method="GET" action="profile.jsp">
-                    <input type="submit" value=${sessionScope.user}>
-                </form>
-            </c:otherwise>
-        </c:choose>
+        <%@ include file="header.jsp" %>
         <form  method="POST" action="ActionResort.do">
             <label for="resort">Select Resort</label>
             <select id="resort" name="resort">

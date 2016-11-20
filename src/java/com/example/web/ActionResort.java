@@ -29,8 +29,16 @@ public class ActionResort extends HttpServlet {
     if (act == null) {
         //no button has been selected
     } else if (act.equals("Rent")) {
-        RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
-        view.forward(request, response);
+        HttpSession session=request.getSession();
+        if (session.getAttribute("user") == null) {
+            RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+            view.forward(request, response);
+        }
+        else {
+            //sindedemenos user alla oxi simpliromena stoixeia
+            //RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
+            //view.forward(request, response);
+        }
     } else if (act.equals("Live")) {
         RequestDispatcher view = request.getRequestDispatcher("live.jsp");
         view.forward(request, response);
