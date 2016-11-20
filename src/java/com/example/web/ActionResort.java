@@ -36,8 +36,8 @@ public class ActionResort extends HttpServlet {
         }
         else {
             //sindedemenos user alla oxi simpliromena stoixeia
-            //RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
-            //view.forward(request, response);
+            RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
+            view.forward(request, response);
         }
     } else if (act.equals("Live")) {
         RequestDispatcher view = request.getRequestDispatcher("live.jsp");

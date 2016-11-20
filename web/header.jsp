@@ -1,3 +1,6 @@
+<form method="GET" action="/Skier">
+    <input type="submit" value="Home"/>
+</form>
 <c:choose>
     <c:when test="${sessionScope.user == null}">
         <form method="GET" action="login.jsp">

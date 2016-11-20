@@ -26,24 +26,20 @@ public class UTHLogin extends HttpServlet {
         String password = request.getParameter("password");
 
         Uthldap ldap = new Uthldap(username,password);
-        HttpSession session = null;
         RequestDispatcher view = null;
         
         if(ldap.auth()){
             System.out.println("Autheticated Youre name is:" + ldap.getName());
-            session = request.getSession();
-            request.setAttribute("username", username);
-            session.setAttribute("username", username);
-            view = request.getRequestDispatcher("userview.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("user", username);
+            response.sendRedirect(request.getParameter("from"));
         }
         else{
             System.out.println("Authetication failed");
             request.setAttribute("failure", "Login failed");
             request.setAttribute("fail", "1");
-            view = request.getRequestDispatcher("login.jsp");
+            view = request.getRequestDispatcher("UTHlogin.jsp");
+            view.forward(request, response);
         }
-        view.forward(request, response);
-        
     }
-    
 }
