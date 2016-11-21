@@ -8,28 +8,32 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+    <link href="style.css" rel="stylesheet" type="text/css">
 <!DOCTYPE html>
     <head>
         <title>Skier</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-        Skier
+    <body>
         <%@ include file="header.jsp" %>
-        <form  method="GET" action="ActionResort.do">
-            <label for="resort">Select Resort</label>
-            <select id="resort" name="resort">
-                <option value="default"></option>
-                <option value="vigla">Viglas</option>
-                <option value="pilio">Piliou</option>
-                <option value="vasilita">Vasilitas</option>
-                <option value="test">TestResort</option>
-            </select> 
-            <br><br>
-            <input type="submit" name="act" value="Rent"/>
-            <input type="submit" name="act" value="Live"/>
-            <input type="submit" name="act" value="Select"/>
-        </form>
-        
-    
+        <div align="center">
+            <div class="form">
+                <form method="GET" action="ActionResort.do">
+                    <label for="resort">Select Resort</label>
+                    <select id="resort" name="resort">
+                        <option value="default"></option>
+                        <option value="vigla">Viglas</option>
+                        <option value="pilio">Piliou</option>
+                        <option value="vasilita">Vasilitas</option>
+                        <option value="test">TestResort</option>
+                    </select> 
+                    <br><br>
+                    <input type="submit" name="act" value="Rent"/>
+                    <input type="submit" name="act" value="Live"/>
+                    <input type="submit" name="act" value="Select"/>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

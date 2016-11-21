@@ -18,10 +18,14 @@ import java.util.*;
 import com.uthldap.Uthldap;
 
 public class UTHLogin extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        RequestDispatcher view = request.getRequestDispatcher("UTHlogin.jsp");
+        view.forward(request, response);
     }
  
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
