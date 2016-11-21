@@ -13,7 +13,7 @@
             <input type="hidden" name="from" value=${pageContext.request.requestURI}>
             <input type="submit" value="Logout"/>
         </form>
-        <form method="GET" action="profile.jsp">
+        <form method="GET" action="Profile.do">
             <input type="submit" value=${sessionScope.user}>
         </form>
     </c:otherwise>

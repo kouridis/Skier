@@ -18,13 +18,13 @@
         <form method="POST" action="Profile.do">
             First name: ${firstName}<br>
             Last name: ${lastName}<br>
-            Gender<br>
+            <%--Gender<br>
             <input type="radio" name="gender" value="Male"> Male<br>
-            <input type="radio" name="gender" value="Female"> Female<br>
-            E-mail: <input type="email" name="email" placeholder=${email}><br>
-            Height in cm: <input type="text" name="height" maxlength="3" size="12" placeholder=${height}><br>
-            Weight in kg: <input type="text" name="weight" maxlength="3" size="12" placeholder=${weight}><br>            
-            Foot size: <input type="text" name="foot" maxlength="2" size="12" placeholder=${foot}><br>
+            <input type="radio" name="gender" value="Female"> Female<br>--%>
+            E-mail: <input type="email" name="email"><br>
+            Height in cm: <input type="text" name="height" maxlength="3" size="12"><br>
+            Weight in kg: <input type="text" name="weight" maxlength="3" size="12"><br>            
+            Foot size: <input type="text" name="foot" maxlength="2" size="12"><br>
             Experience<br>
             <input type="radio" name="exp" value="beginner"> Beginner<br>
             <input type="radio" name="exp" value="intermediate"> Intermediate<br>

@@ -17,6 +17,8 @@
         <form method="POST" action="Signup.do">
             <input type="text" placeholder="Username" name="username" required><br>
             <input type="password" placeholder="Password" name="password" required><br>
+            <input type="text" placeholder="First Name" name="fname" required><br>
+            <input type="text" placeholder="Last Name" name="lname" required><br>
             <input type="email" placeholder="Email" name="email" required><br>
             
             <input type="submit" value="Create account">

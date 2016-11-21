@@ -7,7 +7,6 @@ package com.example.web;
 
 import com.example.model.DBManager;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,12 +29,12 @@ public class Profile extends HttpServlet {
         for (int i=2; i<=results.length-1; i++) {
             session.setAttribute(results[i][0], results[i][1]);
         }
-        String[] parts = request.getQueryString().split("&");
-        if (parts[parts.length-1].equals("act=Rent")) {
+
+        if (request.getQueryString() == null) {
             RequestDispatcher view = request.getRequestDispatcher("profile.jsp");
             view.forward(request, response);
         }
-        else  if(request.getRequestURI().equals("/Skier/Profile.do")) {
+        else if (request.getQueryString().contains("update")){
             RequestDispatcher view = request.getRequestDispatcher("profileupdate.jsp");
             view.forward(request, response);               
         }
@@ -49,7 +48,6 @@ public class Profile extends HttpServlet {
             paramNames.nextElement();
             i++;
         }
-        System.out.println(i);
         String[][] info = new String[i+1][2];
         i = 1;
         
@@ -68,8 +66,7 @@ public class Profile extends HttpServlet {
         }
         
         if (DBManager.updateUser(info)) {
-            RequestDispatcher view = request.getRequestDispatcher("profile.jsp");
-            view.forward(request, response);
+            doGet(request, response);
         }
         else {
             

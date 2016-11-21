@@ -40,11 +40,12 @@ public class ActionResort extends HttpServlet {
                 view.forward(request, response);
             }
             else {
+                /*
                 if (!DBManager.isInfoCompleted(session.getAttribute("user").toString())) {
                     //sindedemenos user alla oxi simpliromena stoixeia
                     RequestDispatcher view = request.getRequestDispatcher("Profile.do");
                     view.forward(request, response);
-                }
+                }*/
                 RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
                 view.forward(request, response);
             }

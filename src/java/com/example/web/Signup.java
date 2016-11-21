@@ -26,8 +26,11 @@ public class Signup extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
         
-        if(DBManager.addUser(username, email, password))
+        String lfname = lname + " " + fname;
+        if(DBManager.addUser(username, password, email, lfname))
         {
             HttpSession session = request.getSession();
             session.setAttribute("user", username);

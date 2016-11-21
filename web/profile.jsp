@@ -18,7 +18,7 @@
             First name: ${firstName}<br>
             Last name: ${lastName}<br>
             E-mail: ${email}<br>
-            Gender: ${gender}<br>
+            <%--Gender: ${gender}<br>--%>
             Height in cm: ${height}<br>
             Weight in kg: ${weight}<br>
             Foot size: ${foot}<br>
