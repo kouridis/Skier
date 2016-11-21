@@ -15,13 +15,13 @@
     <body>
         <%@ include file="header.jsp" %>
         <form method="POST" action="Rent.do">
-            <input type="text" placeholder="Height in cm" name="height" maxlength="3" size="12"><br>
-            <input type="text" placeholder="Weight in kg" name="weight" maxlength="3" size="12"><br>            
-            <input type="text" placeholder="Foot size" name="fsize" maxlength="2" size="12"><br>
+            Height in cm: <input type="text" name="height" maxlength="3" size="12"><br>
+            Weight in kg: <input type="text" name="weight" maxlength="3" size="12"><br>            
+            Foot size: <input type="text" name="fsize" maxlength="2" size="12"><br>
+            Experience<br>
             <input type="radio" name="exp" value="beginner" checked> Beginner<br>
             <input type="radio" name="exp" value="intermediate"> Intermediate<br>
             <input type="radio" name="exp" value="experienced"> Experienced<br>
-            
             <input type="submit" value="Rent">
         </form>
     </body>

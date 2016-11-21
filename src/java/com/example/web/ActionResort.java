@@ -46,6 +46,13 @@ public class ActionResort extends HttpServlet {
                     RequestDispatcher view = request.getRequestDispatcher("Profile.do");
                     view.forward(request, response);
                 }*/
+                String username = session.getAttribute("user").toString();
+                String[][] results = DBManager.getUser(username);
+
+                for (int i=2; i<=results.length-1; i++) {
+                    session.setAttribute(results[i][0], results[i][1]);
+                }
+                
                 RequestDispatcher view = request.getRequestDispatcher("rent.jsp");
                 view.forward(request, response);
             }
